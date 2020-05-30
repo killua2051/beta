@@ -57,7 +57,7 @@
             <div class="col-lg-4" id="box">
                 <center>
                     <span class="fa fa-file-o" style="font-size: 50px;"></span>
-                    <a href="documentCreation"><h3>Document Creation</h3></a>
+                    <a href="document_creation"><h3>Document Creation</h3></a>
                 </center>
             </div>
             <div class="col-lg-4">&nbsp;</div>
