@@ -1,0 +1,6 @@
+1. Process owner CREATES request form
+2. Process owner uploads file
+3. Process owner view will go to QMS Files (Status)
+4. The file will go to cdc 
+5. the file will go to RA
+6. the file will go to QMR
