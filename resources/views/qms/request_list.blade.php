@@ -75,18 +75,17 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Approved Request</h4>
+          <h4 class="modal-title">Revision Request</h4>
         </div>
         <form action="{{ url('crf_approved/') }}" method="POST" name="fileupload" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="modal-body">
             <input type="hidden" name="form_id" id="form_id" value="">
             <input type="hidden" name="author_id" id="author_id" value="">
-            <p class="text-warning" >In order to approve the request. you have to send the "editable file".</p>
             {{--<input type="file" class="form-control" name="upload" required="required">--}}
               <div class="form-group">
-                <label>Select File</label>
-                <input type="text" class="form-control" placeholder="Search Title" disabled>
+                <label>In order to do the revision, Please send an Editable File.</label>
+                <input type="text" class="form-control" placeholder="Search Document Title" disabled>
                 <select class="form-control" name="select_file" id="select_file">
                   @foreach($select_files as $select_files)
                     <option value="{{ $select_files->id }} ">{{ $select_files->file_title }}</option>
@@ -97,7 +96,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Send</button>
           </div>
         </form>
       </div>

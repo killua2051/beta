@@ -39,11 +39,9 @@
               <th></th>
             </tr>
             <tr>
-              <td><select class="form-control" name="doctitle">
-                  <option value="1.0" disable="true" selected="true">Select Document</option>
-                  <option value="{{ Auth::user()->first_name }}" disable="true" selected="false" ></option>
+              <td>
+                  <input type="text" class="form-control" name="doctitle" >Document Title:</td>
 
-                </select>
 
               <td><input type="text" class="form-control" name="version" value="1.0" readonly ></td>
               <td></td>
