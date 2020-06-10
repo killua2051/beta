@@ -6,7 +6,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>{{ $page_title or "Document Creation and Revision" }}</title>
+        <title>{{ $page_title or "Document Creation" }}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link rel="icon" href="{{ asset("/bower_components/admin-lte/dist/img/apclogo.png") }}">
         <!-- Bootstrap 3.3.2 -->
