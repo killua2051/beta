@@ -29,7 +29,7 @@
         <!-- form start -->
         <div class="box-body">
 
-            <form method="POST" action="creation_list">
+            <form method="POST" action="creation_request">
                 {{ csrf_field() }}
                 <input type="hidden" name="user" value=" {{ Auth::user()->id }} ">
                 <table class="table">
@@ -39,13 +39,19 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td><input type="text" class="form-control" name="doctitle">
+                        <td><select class="form-control" name="doctitle">
+                                <option value="1.0" disable="true" selected="true">Select Document</option>
+                                <option value="APC GUIDELINES" disable="true" selected="false"  >APC GUIDELINES</option>
+
+                            </select>
+
                         <td><input type="text" class="form-control" name="version" value="1.0" readonly ></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>Date of Effectivity:</th>
-                        <th>Classification:</th>  
+                        <th>Classification:</th>
+                        <th>Nature of Request:</th>
                     </tr>
                     <tr>
                         <td><input type="date" class="form-control" name="effectdate"></td>
@@ -55,19 +61,31 @@
                                 <option value="Quality Policy Manual (QPM)">Quality Policy Manual (QPM)</option>
                                 <option value="Procedures Manual (PM)">Procedures Manual (PM)</option>
                             </select>
-                        </td>          
+                        </td>
+                        <td>
+                            <select class="form-control" name="natureofR" >
+                                <option value=""></option>
+                                <option value="Revision">Revision</option>
+                                <option value="Obsolete">Obsolete</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <textarea class="form-control" rows="20" name="docparts" placeholder="Include your remarks/notes here"></textarea>
+                            <textarea class="form-control" rows="20" name="docparts" placeholder="Write something to update or change here!"></textarea>
                         </td>
-                    </tr> 
+                    </tr>
+                    <tr>
+                        <th>New Version Number:</th>
+                        <th>Date of Effectivity:</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="form-control" name="NversionN" ></td>
+                        <td><input type="date" class="form-control" name="NeffectiveD" ></td>
+                        <td></td>
+                    </tr>
                 </table>
-
-  			<input type="file" id="myFile" name="filename">
-
-		<p></p>
-		<p></p>
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

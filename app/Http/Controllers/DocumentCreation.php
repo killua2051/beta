@@ -28,4 +28,4 @@ class DocumentCreation extends Controller
     {
         return view('creation.creation_form');
     }
-} 
+}
