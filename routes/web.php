@@ -72,7 +72,7 @@ Route::get('documentRev', 'AuthorController@crl_view');
 //Document Creation
 Route::get('document_creation', 'DocumentCreation@crl_view');
 Route::get('creation_list','DocumentCreation@creationlist');
-Route::get('creation_form','DocumentCreation@index');
+Route::get('creation_request_form','DocumentCreation@index');
 
 
 Route::get('/y', function (){

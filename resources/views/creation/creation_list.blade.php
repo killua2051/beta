@@ -18,7 +18,7 @@
             <strong>{{ $message }}</strong>
         </div>
     @endif
-    <a href="creation_form" class="btn btn-primary">Document Creation Form</a>
+    <a href="creation_request_form" class="btn btn-primary">Document Creation Form</a>
     <br><br>
     <div class="box box-warning">
         <div class="box-header">
@@ -41,7 +41,7 @@
                 @foreach ($creation as $no=>$crl)
                     <tr>
                         <td>{{ ++$no }}</td>
-                        <td>{{ $crl->author->first_name }}</td>
+                        <td>{{ $crl->form_doc_title }}</td>
                         <td>{{ $crl->author->first_name }}</td>
                         <td>{{ date('F d, Y', strtotime($crl->created_at)) }}</td>
                         <td>{{ $crl->formStatus->name }}</td>

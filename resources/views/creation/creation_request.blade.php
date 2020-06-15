@@ -21,7 +21,7 @@
     <div class="box box-warning">
 
         <div class="box-header with-border">
-            <h3 class="box-title">Document Creation Form</h3>
+            <h3 class="box-title">Change Request Form</h3>
         </div>
         <br>
 
@@ -29,7 +29,7 @@
         <!-- form start -->
         <div class="box-body">
 
-            <form method="POST" action="creation_request">
+            <form method="POST" action="crf_request">
                 {{ csrf_field() }}
                 <input type="hidden" name="user" value=" {{ Auth::user()->id }} ">
                 <table class="table">
@@ -41,7 +41,7 @@
                     <tr>
                         <td><select class="form-control" name="doctitle">
                                 <option value="1.0" disable="true" selected="true">Select Document</option>
-                                <option value="APC GUIDELINES" disable="true" selected="false"  >APC GUIDELINES</option>
+                                <option value="{{ Auth::user()->first_name }}" disable="true" selected="false" ></option>
 
                             </select>
 
@@ -102,3 +102,4 @@
 
     <!-- /.box -->
 @endsection
+
