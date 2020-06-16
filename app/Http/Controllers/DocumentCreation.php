@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Form;
-use App\creation;
+use App\File;
 use App\FormCreation;
 use App\Notifications\filenotif;
 use Illuminate\Http\Request;
@@ -59,7 +59,16 @@ class DocumentCreation extends Controller
         $resquest_crf->file_version = '0';
         $resquest_crf->save();
         auth()->user()->notify(new filenotif());
-        return redirect('change_request_list')->with('Success', 'Your document was successfully submitted');
+        return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
 
     }
+    public function form_view2($id)
+    {
+        $v_files = FormCreation::findOrFail($id);
+        $form_file = File::where('form_id', '=', $id, 'AND', 'file_status', '=', '2')->first();
+        $file_history = File::where('form_id', '=', $id)->get();
+        return view('creation.form_view2', compact('v_files', 'form_file', 'file_history'));
+    }
+
+
 }

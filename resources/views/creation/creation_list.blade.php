@@ -68,7 +68,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Submit Qms Files</h4>
+                    <h4 class="modal-title">Submit Document</h4>
                 </div>
                 <form action="{{ url('file_submit')}}" method="POST" name="fileupload" enctype="multipart/form-data">
                     {{ csrf_field() }}
