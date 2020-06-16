@@ -40,9 +40,9 @@
             </tr>
             <tr>
               <td><select class="form-control" name="doctitle">
-                  <option value="1.0" disable="true" selected="true">Select Document</option>
-                  <option value="{{ Auth::user()->first_name}}" disable="true" selected="false" ></option>
-
+                  <option value="Test Entry 1" disable="true" selected="false" >Test Entry 1</option>
+                  <option value="Test Entry 2" disable="true" selected="false" >Test Entry 2</option>
+                  <option value="Test Entry 3" disable="true" selected="false" >Test Entry 3</option>
                 </select>
               </td>
               <td><input type="text" class="form-control" name="version" value="1.0" readonly ></td>
