@@ -75,10 +75,10 @@ class FileHolderController extends Controller
 
     }
 
-    public function crf_declined(Request $request, $id )
+    public function crf_declined(Request $request)
     {
-        $crf_declined = Form::find($id); ///ask if requesting for revision can be denied?
-        $crf_declined->form_stat = '8';
+        $crf_declined = Form::find($request->form_id); ///ask if requesting for revision can be denied?
+        $crf_declined->form_status = '8';
         $crf_declined->save();
 
         return redirect('request_list')->with('Success', 'Change Request has been declined');

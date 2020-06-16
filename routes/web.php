@@ -45,8 +45,8 @@ Route::post('file_submit', 'AuthorController@file_submit');
 //file holder
 Route::get('request_list', 'FileHolderController@request_list_view'); //crf list for editable files for handler
 Route::get('qms', 'FileHolderController@qms_files');
-Route::post('crf_approved', 'FileHolderController@crf_approved'); //approved specific request
-
+Route::post('crf_approved', 'FileHolderController@crf_approved');//approved specific request
+Route::post('crf_declined', 'FileHolderController@crf_declined');
 //approver
 Route::get('qms_approver', 'ApproverController@qmclss_approver');
 Route::post('qms_approved', 'ApproverController@qms_approved');
@@ -74,7 +74,7 @@ Route::get('document_creation', 'DocumentCreation@creationlist');
 Route::get('creation_list','DocumentCreation@creationlist');
 Route::get('creation_request_form','DocumentCreation@index');
 Route::post('creation_request','DocumentCreation@creation_request');
-Route::get('form_view2/{id}', 'DocumentCreation@form_view2');
+Route::get('creation_form_view/{id}', 'DocumentCreation@creation_form_view');
 Route::post('file_submit', 'DocumentCreation@file_submit');
 
 

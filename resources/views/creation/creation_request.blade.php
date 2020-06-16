@@ -89,7 +89,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="change_request_list" class="btn btn-default">Cancel</a>
+                    <a href="creation_list" class="btn btn-default">Cancel</a>
                 </div>
             </form>
 

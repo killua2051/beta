@@ -19,7 +19,6 @@ class CreateEditableFilesTable extends Migration
             $table->integer('form_id');
             $table->integer('file_holder_id');
             $table->integer('user_id');
-            $table->integer('download_status');
             $table->timestamp('downloaded_at');
             $table->timestamps();
         });

@@ -75,7 +75,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Approved Request</h4>
+          <h4 class="modal-title">Approve Request</h4>
         </div>
         <form action="{{ url('crf_approved/') }}" method="POST" name="fileupload" enctype="multipart/form-data">
           {{ csrf_field() }}

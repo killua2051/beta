@@ -65,7 +65,7 @@ class DocumentCreation extends Controller
 
     }
 
-    public function form_view2($id)
+    public function creation_form_view($id)
     {
         $v_files = FormCreation::findOrFail($id);
         $form_file = File::where('form_id', '=', $id, 'AND', 'file_status', '=', '2')->first();
@@ -108,6 +108,5 @@ class DocumentCreation extends Controller
             return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
             auth()->user()->notify(new filenotif());
         }
-
     }
 }
