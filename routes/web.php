@@ -75,6 +75,7 @@ Route::get('creation_list','DocumentCreation@creationlist');
 Route::get('creation_request_form','DocumentCreation@index');
 Route::post('creation_request','DocumentCreation@creation_request');
 Route::get('form_view2/{id}', 'DocumentCreation@form_view2');
+Route::post('file_submit', 'DocumentCreation@file_submit');
 
 
 Route::get('/y', function (){

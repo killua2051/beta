@@ -13,7 +13,7 @@ class DocumentCreation extends Controller
 {
     public function crl_view() // To view all request form in author's view.
     {
-        $creation =Form::where('user_id', '=', Auth::user()->id)
+        $creation = Form::where('user_id', '=', Auth::user()->id)
             ->orderBy('id', 'DESC')
             ->get();
         return view('creation.document_creation', compact('creation'));
@@ -26,10 +26,12 @@ class DocumentCreation extends Controller
             ->get();
         return view('creation.creation_list', compact('creation'));
     }
+
     public function index() //Change Request Form View
     {
         return view('creation.creation_request_form');
     }
+
     public function creation_request(Request $request)
     {
         $request->validate([
@@ -62,6 +64,7 @@ class DocumentCreation extends Controller
         return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
 
     }
+
     public function form_view2($id)
     {
         $v_files = FormCreation::findOrFail($id);
@@ -70,5 +73,41 @@ class DocumentCreation extends Controller
         return view('creation.form_view2', compact('v_files', 'form_file', 'file_history'));
     }
 
+    public function file_submit(Request $request)
+    {
+        $form_id = $request->get('form_id');
+        $form_doc_title = $request->get('form_doc_title');
 
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
+            $file_size = $file->getClientSize();
+            $file_ext = $file->getClientOriginalExtension();
+            //$file_name = $file->getClientOriginalName();
+            $file_name = rand(123456, 999999) . "." . $file_ext; //this is to change file name
+            $destination_path = public_path('files');
+            $file->move($destination_path, $file_name);
+
+            //save data to submit file
+            $qms_files = new File();
+            $qms_files->form_id = $form_id;
+            $qms_files->user_id = Auth::user()->id;
+            $qms_files->reviewer_id = '0'; //temporary value
+            $qms_files->approver_id = '0'; //temporary value
+            $qms_files->approved_date = now(); //temporary value
+            $qms_files->reviewed_date = now(); //temporary value
+            $qms_files->file_title = $form_doc_title;
+            $qms_files->file_path = $file_name;
+            $qms_files->file_status = '3';
+            $qms_files->save();
+
+            //update Form status to 3 that represent as submitted file
+            $forms = Form::find($form_id);
+            $forms->form_status = '3';
+            $forms->save();
+
+            return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
+            auth()->user()->notify(new filenotif());
+        }
+
+    }
 }
