@@ -54,7 +54,7 @@
                     <tr>
                         <td><b><span> CRF Number:</span></b> {{ $v_files->crf_number_id }}</td>
                         <td><b><span> Date Received: </span></b>@if($form_file == !null && $form_file->reviewed_date != '0000-00-00 00:00:00') {{  date('F d, Y', strtotime($form_file->reviewed_date))  }} @endif</td>
-                        <td><b><span>Received By: </span></b>@if($v_files->approveBy == !null){{ $v_files->approveBy->approver->first_name }} @endif</td>
+                        <td><b><span>Received By: </span></b> @if($v_files->approveBy == !null){{ $v_files->approveBy->approver->first_name }}@endif</td>
                     </tr>
                     <tr>
                         <td colspan="3"><b><span>Document Code:</span></b> {{ $v_files->form_doc_code }}</td>
