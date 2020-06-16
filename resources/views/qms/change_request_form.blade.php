@@ -41,10 +41,10 @@
             <tr>
               <td><select class="form-control" name="doctitle">
                   <option value="1.0" disable="true" selected="true">Select Document</option>
-                  <option value="{{ Auth::user()->first_name }}" disable="true" selected="false" ></option>
+                  <option value="{{ Auth::user()->form_doc_title}}" disable="true" selected="false" ></option>
 
                 </select>
-
+              </td>
               <td><input type="text" class="form-control" name="version" value="1.0" readonly ></td>
               <td></td>
             </tr>
