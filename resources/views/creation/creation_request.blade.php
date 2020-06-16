@@ -29,7 +29,7 @@
         <!-- form start -->
         <div class="box-body">
 
-            <form method="POST" action="crf_request">
+            <form method="POST" action="creation_list">
                 {{ csrf_field() }}
                 <input type="hidden" name="user" value=" {{ Auth::user()->id }} ">
                 <table class="table">

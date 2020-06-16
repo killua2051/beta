@@ -21,7 +21,7 @@ class DocumentCreation extends Controller
 
     public function creationlist() // To view all request form in author's view.
     {
-        $creation = Form::where('user_id', '=', Auth::user()->id)
+        $creation = FormCreation::where('user_id', '=', Auth::user()->id)
             ->orderBy('id', 'DESC')
             ->get();
         return view('creation.creation_list', compact('creation'));
