@@ -131,11 +131,6 @@ class AuthorController extends Controller
         $file_history = File::where('form_id', '=', $id)->get();
         return view('qms.form_view2', compact('v_files', 'form_file', 'file_history'));
     }
-    public function doctitle() {
-        $doctitle = Form::select('form_doc_title')->get();
-            return $doctitle;
-            return view ('qms.change_request_list',compact('doctitle'));
-    }
 }
 
 
