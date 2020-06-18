@@ -46,7 +46,7 @@
                         <td>{{ date('F d, Y', strtotime($crl->created_at)) }}</td>
                         <td>{{ $crl->formStatus->name }}</td>
                         <td>
-                            <a target="_blank" href="{{ URL::to('form_view2/'.$crl->id) }}" class="btn btn-info" style="display: inline-block;">View</a>
+                            <a target="_blank" href="{{ URL::to('creation_form_view/'.$crl->id) }}" class="btn btn-info" style="display: inline-block;">View</a>
 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-newfile" data-formid="{{ $crl->id }}" data-formdoctitle="{{ $crl->form_doc_title }}"
                                     style="display: inline-block;" @if($crl->form_status > 2 ) disabled='disabled'  @endif>

@@ -49,7 +49,7 @@ Route::post('crf_approved', 'FileHolderController@crf_approved');//approved spec
 Route::post('crf_declined', 'FileHolderController@crf_declined');
 //approver
 Route::get('qms_approver', 'ApproverController@qmclss_approver');
-Route::post('qms_approved', 'ApproverController@qms_approved');
+Route::post('qms_approved', 'ApproverController@qms_approved')->name('qms.approved');
 Route::post('qms_revision', 'ApproverController@qms_revision');
 Route::get('request_forms', 'ApproverController@request_forms');
 

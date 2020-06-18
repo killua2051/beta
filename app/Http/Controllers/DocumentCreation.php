@@ -40,8 +40,7 @@ class DocumentCreation extends Controller
             'effectdate' => 'required',
             'classification' => 'required',
             'docparts' => 'required',
-            'NversionN' => 'required',
-            'NeffectiveD' => 'required'
+            
         ]);
 
         $resquest_crf = new FormCreation();
@@ -53,12 +52,9 @@ class DocumentCreation extends Controller
         $resquest_crf->form_doc_code = '0'; //temporary files
         $resquest_crf->form_doc_title = $request->doctitle;
         $resquest_crf->form_version_number = $request->version;
-        $resquest_crf->form_new_version = $request->NversionN;
         $resquest_crf->form_effective_date = $request->effectdate;
         $resquest_crf->form_classification = $request->classification;
-        $resquest_crf->form_new_effective_date = $request->NeffectiveD;
         $resquest_crf->form_parts = $request->docparts;
-        $resquest_crf->file_version = '0';
         $resquest_crf->save();
         auth()->user()->notify(new filenotif());
         return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
@@ -70,7 +66,7 @@ class DocumentCreation extends Controller
         $v_files = FormCreation::findOrFail($id);
         $form_file = File::where('form_id', '=', $id, 'AND', 'file_status', '=', '2')->first();
         $file_history = File::where('form_id', '=', $id)->get();
-        return view('creation.form_view2', compact('v_files', 'form_file', 'file_history'));
+        return view('creation.creation_form_view', compact('v_files', 'form_file', 'file_history'));
     }
 
     public function file_submit(Request $request)

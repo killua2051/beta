@@ -52,7 +52,6 @@
             <div class="box-body">
                 <table class="table">
                     <tr>
-                        <td><b><span> CRF Number:</span></b> {{ $v_files->crf_number_id }}</td>
                         <td><b><span> Date Received: </span></b>@if($form_file == !null && $form_file->reviewed_date != '0000-00-00 00:00:00') {{  date('F d, Y', strtotime($form_file->reviewed_date))  }} @endif</td>
                         <td><b><span>Received By: </span></b>@if($v_files->approveBy == !null){{ $v_files->approveBy->approver->first_name }} @endif</td>
                     </tr>
@@ -76,10 +75,7 @@
                             <br><textarea class="form-control" rows="4" disabled> {{ $v_files->form_parts }}</textarea>
                         </td>
                     </tr>
-                    <tr>
-                        <td><b><span>New Version Number: </span></b> {{ $v_files->form_new_version }}</td>
-                        <td><b><span>Date of Effectivity : </span></b> {{ date('F d, Y', strtotime($v_files->form_new_effective_date)) }}</td>
-                    </tr>
+                    
                     <tr>
                         <td><b><span>Prepared By: </span></b> {{ $v_files->author->first_name }}</td>
                         <td><b><span>Reviewed By : </span></b> @if($v_files->reviewBy == !null){{ $v_files->reviewBy->reviewer->first_name }} @endif</td>

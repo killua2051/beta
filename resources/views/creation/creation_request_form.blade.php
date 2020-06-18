@@ -60,18 +60,8 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <textarea class="form-control" rows="20" name="docparts" placeholder="Write something to update or change here!"></textarea>
+                            <textarea class="form-control" rows="20" name="docparts" placeholder="Insert your remarks here"></textarea>
                         </td>
-                    </tr>
-                    <tr>
-                        <th>New Version Number:</th>
-                        <th>Date of Effectivity:</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="form-control" name="NversionN" ></td>
-                        <td><input type="date" class="form-control" name="NeffectiveD" ></td>
-                        <td></td>
                     </tr>
                 </table>
 

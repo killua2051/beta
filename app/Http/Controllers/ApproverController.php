@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\FormCreation;
 use App\Notifications\filenotif;
 use App\Notifications\ForApproval;
 use App\User;
@@ -42,11 +43,11 @@ class ApproverController extends Controller
         $s_file->approver_id = '1';
         $s_file->save();
 
-        $form = Form::find($request->form_id);
+        $form = FormCreation::find($request->form_id);
         $form->form_status = '4';
         $form->approver_id = '1';
-
         $form->save();
+
         auth()->user()->notify(new filenotif());
         return redirect('qms_approver')->with('Success', 'Document is now for review');
     }

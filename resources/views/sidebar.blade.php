@@ -27,7 +27,7 @@
             <li class="{{ Request::is('change_request_list') ? 'active' : ''  }}"><a href="change_request_list"><i class="fa fa-files-o"></i><span>CRF</span></a></li>
             <li class="{{ Request::is('editable_files') ? 'active' : '' }}"><a href="editable_files"><i class="fa fa-files-o"></i><span>QMS Editable Files</span></a></li>
             <li class="{{ Request::is('qms_author') ? 'active' : '' }}"><a href="qms_author"><i class="fa fa-file-o"></i><span>QMS Files</span></a></li>
-                <li class="{{ Request::is('creation_list') ? 'active' : '' }}"><a href="creation_list"><i class="fa fa-file-o"></i><span>Document Creation</span></a></li>
+            <li class="{{ Request::is('creation_list') ? 'active' : '' }}"><a href="creation_list"><i class="fa fa-file-o"></i><span>Document Creation</span></a></li>
             @elseif(Auth::user()->status == 4)
             <!--This is for File Holder-->
             <li class="header">E-Holder DASHBOARD</li><!--for the mean time-->

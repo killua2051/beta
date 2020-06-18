@@ -60,7 +60,7 @@
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Approve Files</h4>
                 </div>
-                <form action="{{ url('qms_approved') }}" method="POST" name="fileupload" enctype="multipart/form-data">
+                <form action="{{ route('qms.approved') }}" method="POST" name="fileupload" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <input type="hidden" name="form_id" id="form_id" value="">
