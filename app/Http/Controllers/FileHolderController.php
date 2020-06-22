@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Editable_file;
+
 use App\Form;
 use App\File;
 use App\Notifications\filenotif;
@@ -34,47 +34,43 @@ class FileHolderController extends Controller
 
     public function crf_approved(Request $request)
     {
-        /*if($request->hasFile('upload')){
+        $form_id = $request->get('form_id');
+        $form_doc_title = $request->get('form_doc_title');
+
+        if ($request->hasFile('upload')) {
             $file = $request->file('upload');
             $file_size = $file->getClientSize();
             $file_ext = $file->getClientOriginalExtension();
-            $file_name = $file->getClientOriginalName();
-            //$file_name = rand(123456, 999999).".".$file_ext; //this is to change file name
+            //$file_name = $file->getClientOriginalName();
+            $file_name = rand(123456, 999999) . "." . $file_ext; //this is to change file name
             $destination_path = public_path('files');
-            $file->move($destination_path,$file_name);
+            $file->move($destination_path, $file_name);
 
-            $crf_approve = Form::find($request->form_id);
-            $crf_approve->form_status = '1';
-            $crf_approve->save();
+            //save data to submit file
+            $qms_files = new File();
+            $qms_files->form_id = $form_id;
+            $qms_files->user_id = Auth::user()->id;
+            $qms_files->reviewer_id = '0'; //temporary value
+            $qms_files->approver_id = '0'; //temporary value
+            $qms_files->approved_date = now(); //temporary value
+            $qms_files->reviewed_date = now(); //temporary value
+            $qms_files->file_title = $file_name;
+            $qms_files->file_path = $file_name;
+            $qms_files->file_status = '2';
+            $qms_files->save();
 
-            $crf_efiles = new Editable_file([
-                'form_id' => $request->form_id,
-                'user_id' => $request->author_id,
-                'file_id' => $request->select_file, //this file will get from files table
-                'file_holder_id' => Auth::user()->id
-            ]);
+            //update Form status to 3 that represent as submitted file
+            $forms = Form::find($form_id);
+            $forms->form_status = '2';
+            $forms->save();
 
-            $crf_efiles->save();
-
-            return redirect('request_list')->with('Success', 'Change Request Approved');
-        }*/
-
-        $crf_approve = Form::find($request->form_id);
-        $crf_approve->form_status = '2';
-        $crf_approve->save();
-
-        $crf_efiles = new Editable_file([
-            'form_id' => $request->form_id,
-            'user_id' => $request->author_id,
-            'file_id' => $request->select_file,
-            'file_holder_id' => Auth::user()->id
-        ]);
-        $crf_efiles->save();
-
-        return redirect('request_list')->with('Success', 'Change Request has been approved');
-
+            return redirect('request_list')->with('Success', 'You have submitted the editable file.');
+            auth()->user()->notify(new filenotif());
+        }
     }
 
+            
+                
     public function crf_declined(Request $request)
     {
         $crf_declined = Form::find($request->form_id); ///ask if requesting for revision can be denied?

@@ -89,8 +89,6 @@ Route::get('/y', function (){
 });
 
 
-
-
 /*Route::get('form_view2', function () {
     //return view('welcome');
     return view('qms.form_view2');

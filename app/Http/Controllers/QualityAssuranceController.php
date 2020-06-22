@@ -22,18 +22,21 @@ class QualityAssuranceController extends Controller
     public function qa_approved(Request $request)
     {
         $s_file = File::find($request->file_id);
-        $s_file->file_status = '5';
+        $s_file->file_status = '4';
         $s_file->reviewer_id = '1';
         $s_file->reviewed_date = date('Y-m-d H:i:s');
         $s_file->save();
 
-        $form = Form::find($request->form_id);
-        $form->form_status = '5';
-        $form->crf_number_id = $request->crfNumber;
-        $form->reviewer_id = '1';
+	$form = Form::find($request->form_id);
+	$form->crf_number_id = request()->crf_number_id;
+        $form->form_status = '4';
+        $form->file_version = $form->file_version++;
+        $form->reviewer_id = Auth::user()->id;
         $form->save();
 
-        return redirect('quality_assurance')->with('Success', 'File is for review');
+        
+
+        return redirect('quality_assurance')->with('Success', 'File is for approval');
     }
 
     public function qa_revision(Request $request)
@@ -43,7 +46,7 @@ class QualityAssuranceController extends Controller
          */
 
         $form = Form::find($request->form_id);
-        $form->form_status = '1';
+        $form->form_status = '2';
         $form->file_version = $form->file_version++;
         $form->reviewer_id = Auth::user()->id;
         $form->save();

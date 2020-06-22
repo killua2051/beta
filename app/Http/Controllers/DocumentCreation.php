@@ -96,10 +96,7 @@ class DocumentCreation extends Controller
             $qms_files->file_status = '3';
             $qms_files->save();
 
-            //update Form status to 3 that represent as submitted file
-            $forms = Form::find($form_id);
-            $forms->form_status = '3';
-            $forms->save();
+           
 
             return redirect('creation_list')->with('Success', 'Your document was successfully submitted');
             auth()->user()->notify(new filenotif());

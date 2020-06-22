@@ -39,7 +39,9 @@
     <div >
         <a href="{{url('change_request_list')}}"><img style="height: 50px; position: absolute" src="{{ asset("/bower_components/admin-lte/dist/img/apclogo.png") }}"/></a>
 <h3 align="center">
-    {{ "Procedure Manual" }}
+	<br></br>
+    {{ "" }}
+	
     <small>{{ $page_description or null }}</small>
 </h3>
     <br>

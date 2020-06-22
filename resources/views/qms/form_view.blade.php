@@ -51,7 +51,7 @@
 
 <table class="table table-bordered" width="100%" border="1">
 	<tr class="first_row">
-		<td class="elem" width="20%"><b>Document Code:</b> {{ $v_files->crf_number_id }}</td>
+		<td class="elem" width="20%"><b>CRF Number:</b> {{ $v_files->crf_number_id }}</td>
 		<td class="elem" width="50%"><b>Date Received:</b>@if($form_file == !null && $form_file->reviewed_date != '0000-00-00 00:00:00') {{  date('F d, Y', strtotime($form_file->reviewed_date))  }} @endif </td>
 		<td class="elem" width="30%"><b>Received By:</b> {{ $v_files->approver_id }} </td>
 	</tr>

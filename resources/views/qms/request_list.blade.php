@@ -69,42 +69,32 @@
       </div>
 
 <!--My comment dito -->
-<div class="modal fade" id="modal-approve">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Approve Request</h4>
+<<div class="modal fade" id="modal-approve">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Approve Document</h4>
+                </div>
+                <form action="{{ url('crf_approved')}}" method="POST" name="fileupload" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                        <input type="hidden" name="form_id" id="form_id" value="">
+                        <input type="hidden" name="form_doc_title" id="form_doc_title" value="">
+                        <input type="file" class="form-control" name="upload" required="required">
+			<p class="text-warning" > In order to approve the request, you have to send the editable file. </p>
+		    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
         </div>
-        <form action="{{ url('crf_approved/') }}" method="POST" name="fileupload" enctype="multipart/form-data">
-          {{ csrf_field() }}
-          <div class="modal-body">
-            <input type="hidden" name="form_id" id="form_id" value="">
-            <input type="hidden" name="author_id" id="author_id" value="">
-            <p class="text-warning" >In order to approve the request. you have to send the "editable file".</p>
-            {{--<input type="file" class="form-control" name="upload" required="required">--}}
-              <div class="form-group">
-                <label>Select File</label>
-                <input type="text" class="form-control" placeholder="Search Title" disabled>
-                <select class="form-control" name="select_file" id="select_file">
-                  @foreach($select_files as $select_files)
-                    <option value="{{ $select_files->id }} ">{{ $select_files->file_title }}</option>
-                  @endforeach
-                </select>
-              </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
-      <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
+        <!-- /.modal-dialog -->
+    </div>
 
 <!--My comment din dito -->
 <div class="modal fade" id="modal-decline">

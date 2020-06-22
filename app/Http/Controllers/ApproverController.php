@@ -42,14 +42,12 @@ class ApproverController extends Controller
         $s_file->file_status = '4';
         $s_file->approver_id = '1';
         $s_file->save();
+	
+	
 
-        $form = FormCreation::find($request->form_id);
-        $form->form_status = '4';
-        $form->approver_id = '1';
-        $form->save();
 
         auth()->user()->notify(new filenotif());
-        return redirect('qms_approver')->with('Success', 'Document is now for review');
+        return redirect('qms_approver')->with('Success', 'Document is now for approval.');
     }
 
     public function qms_revision(Request $request)
@@ -57,11 +55,7 @@ class ApproverController extends Controller
         /* The form will be mark as for revision so the form_status will become 1
          *
          * */
-        $form = Form::find($request->form_id);
-        $form->form_status = '1';
-        $form->file_version = $form->file_version++;
-        $form->approver_id = Auth::user()->id;
-        $form->save();
+        
 
         /* This file will be mark as rejected. so the file status will become 4
          *

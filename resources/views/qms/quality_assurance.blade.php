@@ -68,16 +68,16 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Approved Files</h4>
+                    <h4 class="modal-title">Approve File</h4>
                 </div>
                 <form action="{{ url('qa_approved') }}" method="POST" name="fileupload" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <input type="hidden" name="form_id" id="form_id" value="">
                         <input type="hidden" name="file_id" id="file_id" value="">
-                        <p class="text-warning" >Are you sure you want to approved this file?</p>
+                        <p class="text-warning" >Are you sure you want to approve this file?</p>
                         <span>CRF Number</span>
-                        <input type="text" class="form-control" name="crfNumber" id="crfNumber" value="" required>
+                        <input type="text" class="form-control" name="crf_number_id" id="crf_number_id" value="" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

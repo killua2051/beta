@@ -100,13 +100,13 @@ class AuthorController extends Controller
         }
     }
 
-    public function editable_files() // editable files view
+    /*public function editable_files() // editable files view
     {
         $editable_files = Editable_file::with(['sender', 'file'])
             ->orderBy('id', 'DESC')
             ->get();
         return view('qms.editable_files', compact('editable_files'));
-    }
+    }*/
 
     public function qms_author() // CRF List View
     {
