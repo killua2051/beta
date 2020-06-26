@@ -28,7 +28,7 @@ class QualityAssuranceController extends Controller
         $s_file->save();
 
 	$form = Form::find($request->form_id);
-	$form->crf_number_id = request()->crf_number_id;
+	$form->form_doc_code = request()->form_doc_code;
         $form->form_status = '4';
         $form->file_version = $form->file_version++;
         $form->reviewer_id = Auth::user()->id;

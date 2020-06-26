@@ -56,6 +56,10 @@ class UserController extends Controller
         {
             return redirect('request_list');
         }
+	 elseif(Auth::user()->status == 5)
+        {
+            return redirect('request_forms');
+        }
         if(Auth::user()->view1 ==1 );
         return redirect('creation_list');
 	}

@@ -53,6 +53,12 @@ Route::post('qms_approved', 'ApproverController@qms_approved')->name('qms.approv
 Route::post('qms_revision', 'ApproverController@qms_revision');
 Route::get('request_forms', 'ApproverController@request_forms');
 
+//approving authority
+Route::get('qms_approver', 'ApproverController@qmclss_approver');
+Route::post('qms_approved', 'ApproverController@qms_approved')->name('qms.approved');
+Route::post('qms_revision', 'ApproverController@qms_revision');
+Route::get('request_forms', 'ApproverController@request_forms');
+
 //quality_assurance
 Route::get('quality_assurance', 'QualityAssuranceController@quality_assurance');
 Route::post('qa_approved', 'QualityAssuranceController@qa_approved');

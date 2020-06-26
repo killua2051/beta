@@ -76,8 +76,8 @@
                         <input type="hidden" name="form_id" id="form_id" value="">
                         <input type="hidden" name="file_id" id="file_id" value="">
                         <p class="text-warning" >Are you sure you want to approve this file?</p>
-                        <span>CRF Number</span>
-                        <input type="text" class="form-control" name="crf_number_id" id="crf_number_id" value="" required>
+                        <span>Document Code</span>
+                        <input type="text" class="form-control" name="form_doc_code" id="form_doc_code" value="" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
